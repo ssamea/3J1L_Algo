@@ -1,0 +1,15 @@
+#내림차순 정렬 해서 3번째 데이터만 더하지 않앗다 
+import sys
+
+n = int(input())
+arr = []
+for i in range(n):
+    arr.append(int(input()))
+
+arr.sort(reverse=True)
+result = 0
+for i in range(n):
+    if i%3 != 2:
+        result += arr[i]
+
+print(result)
