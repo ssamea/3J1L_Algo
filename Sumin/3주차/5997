@@ -1,0 +1,16 @@
+import sys
+
+arr = []
+for i in range(28):
+    arr.append(int(input()))
+
+arr.sort()
+new_arr = []
+for i in range(29):
+    if i+1 in arr:
+        pass
+    else: new_arr.append(i+1)
+
+new_arr.sort()
+for i in range(len(new_arr)):
+    print(new_arr[i])
