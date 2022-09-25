@@ -6,7 +6,7 @@ for i in range(28):
 
 arr.sort()
 new_arr = []
-for i in range(29):
+for i in range(30):
     if i+1 in arr:
         pass
     else: new_arr.append(i+1)
