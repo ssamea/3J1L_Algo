@@ -1,0 +1,18 @@
+#사실 틀렸다.. 왜틀렸는진 도무지 몰르겠다.................테스트 케이스는 다 맞췃느데..
+import sys
+
+n, s, p = map(int,input().split())
+
+if n:
+  arr = list(map(int, input().split()))
+  arr.append(s)
+  arr.sort(reverse=True)
+  k = arr.index(s) + 1
+
+  if  k > p:
+      print(-1)
+  if k <= p:
+    if k == p and arr[p-1] == s:
+        print(-1)
+    else: print(k)
+else: print(1)
