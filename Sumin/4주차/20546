@@ -1,0 +1,37 @@
+import sys
+
+don = int(input())
+juga = list(map(int, input().split()))
+plus = 0
+cnt_j = 0
+don_j = don
+cnt_s = 0
+don_s = don
+#준현이
+for i in range(len(juga)):
+    if don_j >= juga[i]:
+        cnt_j += don_j // juga[i] #몫은 주가 수
+        don_j = don_j - (cnt_j * juga[i])  # 나머지는 남은 현금
+
+#성민이
+for i in range(len(juga)-3):
+    if juga[i] > juga[i+1] and juga[i+1] > juga[i+2] and juga[i+2] > juga[i+3]: #3연속 주가하락이면
+        if don_s >= juga[i+3]: # 가진 현금으로 살수 있다면
+            cnt_s += don_s // juga[i+3] #주가 갯수
+            don_s = don_s % juga[i+3] #현금
+            #print(cnt_s ,'주가 갯수 ')
+            #print(don_s ,'남은 돈 ')
+    elif juga[i] < juga[i+1] and juga[i+1] < juga[i+2] and juga[i+2] < juga[i+3]: #3연속 주가상승이면
+        don_s += cnt_s * juga[i + 3] #현금
+        cnt_s = 0 #다 팔았으니까 카운트 0
+        #print(cnt_s ,'주가 갯수 ')
+        #print(don_s ,'남은 돈 ')
+#print(don_j + (cnt_j * juga[-1]))
+#print(don_s + (cnt_s * juga[-1]))
+
+if don_j + (cnt_j * juga[-1]) > don_s + (cnt_s * juga[-1]):
+    print("BNP")
+elif don_j + (cnt_j * juga[-1]) < don_s + (cnt_s * juga[-1]):
+    print("TIMING")
+else:
+    print("SAMESAME")

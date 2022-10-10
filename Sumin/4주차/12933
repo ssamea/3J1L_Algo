@@ -1,0 +1,27 @@
+import sys
+
+duck = [ 'q','u','a','c','k']
+n = input()
+data = list(n)
+result = 0
+datas = []
+k = int(data.count('q')) #q의 갯수
+last = int(data.index('k')) # 첫 k의 인덱스 값
+for _ in range(k): #q 갯수 만큼
+    cnt = 0
+    for i in range(len(data)): #입력값 처음부터 확인하기
+       # print(cnt)
+        if data[i] == duck[cnt]: #글자 확인 ㅇ
+            datas.append(data[i])
+            cnt+=1
+            data[i] = 'x' #다음 탐색에선 안걸리게 다른 단어로 바꿈
+            if cnt == 5:#단어가 전부 완성되면 +1 해주고 포문 나가기
+                result +=1
+                cnt = 0
+                #print(data)
+                break
+
+if result ==0 or len(datas) % 5 !=0:
+    print(-1)
+else:
+    print(result)
