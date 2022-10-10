@@ -1,0 +1,15 @@
+import sys
+
+n, don =map(int,input().split())
+jan = []
+answer = [0]*(don+1)
+answer[0] =1
+for i in range(n):
+    jan.append(int(input()))
+
+for i in jan:
+    for j in range(i,don+1):
+        if j - i >=0:
+            answer[j] += answer[j-i]
+
+print(answer[don])
