@@ -1,0 +1,15 @@
+n = int(input())
+
+sugar = [-1]*(5001)
+sugar[3] = 1
+sugar[5] = 1
+for i in range(6,n+1):
+    if sugar[i-3] !=-1 and sugar[i-5] !=-1:
+        sugar[i] = min(sugar[i-3], sugar[i-5]) + 1
+    elif i % 5 == 0:
+        sugar[i] = i // 5
+    elif i % 3 == 0:
+        sugar[i] =i // 3
+
+
+print(sugar[n])
