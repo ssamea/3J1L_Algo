@@ -1,0 +1,15 @@
+bak = []
+for _ in range(9):
+    bak.append(int(input()))
+
+for i in range(len(bak)):
+    for j in range(i+1, len(bak)):
+        if (bak[i] + bak[j]) == sum(bak) - 100:
+            a = bak[i]
+            b = bak[j]
+            break
+
+bak.sort()
+for i in bak:
+    if i !=a and i !=b:
+        print(i)
