@@ -18,3 +18,4 @@ for _ in range(M):
     else:
         print(dic[question])
 
+

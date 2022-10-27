@@ -38,3 +38,4 @@ for i in range(N):
         ans.append(i)
 
 print(min(ans) + 1)
+
