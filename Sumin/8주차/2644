@@ -1,0 +1,23 @@
+n = int(input())
+a, b = map(int, input().split())
+k = int(input())
+graph = [[] for _ in range(n+1)]
+visit = [0]*(n+1)
+#사람 수만큼 그래프 만들기
+for i in range(k):
+    t, k = map(int, input().split())
+    graph[t].append(k)
+    graph[k].append(t)
+
+
+def dfs(v):
+    for next in graph[v]:
+        if visit[next] == 0:
+            visit[next] = visit[v] + 1
+            dfs(next)
+
+dfs(a)
+if visit[b] == 0:
+    print(-1)
+else:
+    print(visit[b])
